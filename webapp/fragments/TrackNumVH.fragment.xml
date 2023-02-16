@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>TrkNumTitle}" items="{path : 'TrackNoModel>/'}" liveChange="onTrackNoSearch" confirm="_confirmTrackNoVHDialog"
+		cancel="_cancelTrackNoVHDialog">
+		<StandardListItem  title="{TrackNoModel>TRACKNO}" />
+	</SelectDialog>
+</core:FragmentDefinition>

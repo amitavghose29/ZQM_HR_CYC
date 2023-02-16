@@ -1,0 +1,95 @@
+<mvc:View controllerName="com.airbus.zqmhrcyc.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout">
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                        <l:VerticalLayout width="100%">
+                            <fb:FilterBar reset="onReset" search="_onSearchHourlyReport" useToolbar="false" showGoOnFB="true">
+                                <fb:filterGroupItems>
+                                    <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="A" label="{i18n>TtleLblNCText}" labelTooltip="{i18n>TtleLblNCText}" visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Input id="idGenLblNC" valueHelpRequest=".onValueHelpRequested" showValueHelp="true" liveChange="handleNCChange" >
+                                            </Input>
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem id="idFBGrpItemDisc" groupName="G1" groupTitle="Group1" name="B" label="{i18n>TtleLblDiscrepText}" labelTooltip="{i18n>TtleLblDiscrepText}" visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Input id="idGenLblDiscrep" showValueHelp="true" valueHelpRequest=".onValueHelpReqDisc" />
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+
+                                    <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="C" label="{i18n>TtleLblTrckNumText}" labelTooltip="{i18n>TtleLblTrckNumText}" visibleInFilterBar="true">
+                                        <fb:control>
+                                            <Input id="idGenLblTrkNum" showValueHelp="true" valueHelpRequest=".onValueHelpReqTrackNo" />
+                                        </fb:control>
+                                    </fb:FilterGroupItem>
+                                </fb:filterGroupItems>
+                            </fb:FilterBar>
+                        </l:VerticalLayout>
+                        <f:SimpleForm id="idSFHourCycle" editable="true" layout="ResponsiveGridLayout">
+                            <f:toolbar>
+                                <Toolbar>
+                                    <ToolbarSpacer />
+                                    <Button icon="sap-icon://cancel" tooltip="Delete" press="handlePressDelete" />
+                                </Toolbar>
+                            </f:toolbar>
+                            <f:content>
+                                <core:Title id="_IDSFTitleLeft" text="" />
+                                <Label id="_idLblSFNCNo" text="{i18n>LblNotifNumText}" />
+                                <Input id="idInpSFNCNo" editable="false" width="200px" value="{HourDetModel>/QMNUM}" />
+                                <Label id="_idLblSFDiscNo" text="{i18n>LblDiscNumText}" />
+                                <Input id="idInpSFDiscNo" editable="false" width="200px" value="{HourDetModel>/FENUM}" />
+                                <Label id="_idLblSFStatus" text="{i18n>LblStatusText}" />
+                                <Input id="idInpSFStatus" editable="false" width="200px" value="{HourDetModel>/Status}" />
+                                <Label id="_idLblSFPPM" text="{i18n>LblPPMText}" />
+                                <Input id="idInpSFPPM" editable="false" width="200px" value="{HourDetModel>/ParntPartNumber}" />
+                                <Label id="_idLblSFSNum" text="{i18n>LblSrNumText}" />
+                                <Input id="idInpSFSNum" width="200px" value="{HourDetModel>/SERNR}" maxLength="18" />
+                                <Label id="_idLblSFRemFrm" text="{i18n>LblRemFrmText}" />
+                                <Input id="idInpSFRemFrm" width="200px" value="{HourDetModel>/REMOVEDFROM}" maxLength="7" />
+                                <Label id="_idLblSFHrs" text="{i18n>LblHrsText}" />
+                                <Input id="idInpSFHrs" width="200px" value="{HourDetModel>/ZHOURS}" maxLength="8" />
+                                <Label id="_idLblSFCycle" text="{i18n>LblCycleText}" />
+                                <Input id="idInpSFCycle" width="200px" value="{HourDetModel>/CYCLE}" maxLength="10" type="Number" />
+                                <core:Title id="_IDSFTitleRight" text="" />
+                                <Label id="_idLblSFTrckNo" text="{i18n>LblTrckNumText}" />
+                                <Input id="idInpSFTrckNo" editable="false" width="200px" value="{HourDetModel>/TRACKNO}" />
+                                <Label id="_idLblSFNCDetAt" text="{i18n>LblNcDecAtText}" />
+                                <Input id="idInpSFNCDetAt" editable="false" width="200px" value="{HourDetModel>/ZLOCPART}" />
+                                <Label id="_idLblSFNCUsrId" text="{i18n>LblUsrIDText}" />
+                                <Input id="idInpSFUsrId" editable="false" width="200px" value="{HourDetModel>/ERNAM}" />
+                                <Label id="_idLblSFDteCrtd" text="{i18n>LblDteCrtdText}" />
+                                <DatePicker id="idInpSFDteCrtd" width="200px" value="{path:'HourDetModel>/ERDAT', formatOptions: { style: 'medium', strictParsing: true}}" editable="false" />
+                                <Label id="_idLblSFPersName" text="{i18n>LblPersNameText}" />
+                                <Input id="idInpSFPersName" editable="false" width="200px" value="{HourDetModel>/AENAM}" />
+                                <Label id="_idLblSFLstChgeDte" text="{i18n>LblLstChngeDteText}" />
+                                <DatePicker id="idInpSFLstChgeDte" width="200px" value="{path:'HourDetModel>/AEDAT', formatOptions: { style: 'medium', strictParsing: true}}" editable="false" />
+                                <Label id="_idLblSFSngNum" text="{i18n>LblSngNumText}" />
+                                <Input id="idInpSFSngNum" width="200px" value="{HourDetModel>/SNAG}" maxLength="12" />
+                                <Label id="_idLblSFCmnts" text="{i18n>LblCmntsText}" />
+                                <TextArea id="idTAComments" width="200px" value="{HourDetModel>/ZHRSCYCLECOMMENT}" maxLength="1024" />
+                            </f:content>
+                        </f:SimpleForm>
+                    </content>
+                    <footer>
+                        <OverflowToolbar id="otbFooter">
+                            <ToolbarSpacer id="_IDGenToolbarSpacer3" />
+                            <Button id="_IDGenButton1" text="{i18n>Save}" type="Emphasized" press="onPressHourCycleSave">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1" priority="NeverOverflow" />
+                                </layoutData>
+                            </Button>
+                            <Button id="_IDGenButton2" text="{i18n>Cancel}" type="Emphasized">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData2" priority="NeverOverflow" />
+                                </layoutData>
+                            </Button>
+                        </OverflowToolbar>
+                    </footer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

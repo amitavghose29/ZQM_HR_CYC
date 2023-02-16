@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18n>DiscrepTitle}" items="{path : 'discrmodel>/results'}" liveChange="onDiscSearch" confirm="_confirmDiscVHDialog"
+		cancel="_cancelDiscVHDialog">
+		<StandardListItem  title="{discrmodel>DiscrepancyNo}" />
+	</SelectDialog>
+</core:FragmentDefinition>

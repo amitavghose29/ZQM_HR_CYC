@@ -1,0 +1,91 @@
+<core:FragmentDefinition  xmlns="sap.m" xmlns:core="sap.ui.core"  xmlns:fb="sap.ui.comp.filterbar">	
+    <Dialog title="{i18n>HCTitle}" class="vhdialogGRSearchstyle">
+        <VBox class="sapUiSizeCompact">
+			<fb:FilterBar search="_onNCSearchGo" showRestoreButton="false">
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="Notification" label="NC Number" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input id="idFBNcNum" valueHelpRequest="onNCNoFBVHRequest" showValueHelp="true" 
+                            showSuggestion="true" 
+                            suggestionItems="{oNcNumSuggModel>/}" >
+                                <suggestionItems>
+									<core:Item text="{oNcNumSuggModel>Value}" />
+								</suggestionItems>
+							</Input>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                        <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="SerialNumber" label="Serial Number" visibleInFilterBar="true">
+                            <fb:control>
+                                <Input id="idFBSerNo" valueHelpRequest="onSerNoFBVHRequest" showValueHelp="true"
+                                showSuggestion="true" 
+                                suggestionItems="{oSerNoSuggModel>/}" >
+                                    <suggestionItems>
+									<core:Item text="{oSerNoSuggModel>Value}" />
+								</suggestionItems>
+							</Input>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+                    <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="Aircraft" label="Aircraft" visibleInFilterBar="true">
+                        <fb:control>
+                            <Input id="idFBAircraft" valueHelpRequest="onAircrafthelpRequest" showValueHelp="true"
+                             showSuggestion="true" 
+                             suggestionItems="{oAircrafttNoSuggModel>/}" >
+                                    <suggestionItems>
+									<core:Item text="{oAircrafttNoSuggModel>Value}" />
+								</suggestionItems>
+							</Input>
+                        </fb:control>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
+            </fb:FilterBar>
+            <Table id="idNCTable" inset="false" items="{oNcCopyModel>/}" mode="SingleSelectMaster" 
+				itemPress="handleCloseUserValueHelpNCcopy" growing="true" growingThreshold="10" sticky="ColumnHeaders" >
+                <headerToolbar>
+					<OverflowToolbar id="otbSubheader">
+						<ToolbarSpacer />
+						<Button id="idBtnAscSort" icon="sap-icon://sort-ascending" type="Transparent"
+							press="_handleNCSorting" tooltip="Sort Ascending" />
+						<Button id="idBtnDescSort" icon="sap-icon://sort-descending" type="Transparent"
+							press="_handleNCSorting" tooltip="Sort Descending" />
+					</OverflowToolbar>
+				</headerToolbar>
+                <columns>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>Nc}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>NCtype}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>NotiType}" />
+                    </Column>     
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>NcDesc}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>SerialNum}" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="{i18n>AirCraftNo}" />
+                    </Column>
+                    
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle" type="Active">
+                        <cells>
+                            <Text text="{oNcCopyModel>Notification}" />
+                            <Text text="{oNcCopyModel>NotificationType}" />
+                            <Text text="{oNcCopyModel>NotifType}" />
+                            <Text text="{oNcCopyModel>Description}" />
+                            <Text text="{oNcCopyModel>SerialNumber}" />
+                            <Text text="{oNcCopyModel>Aircraft}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+        <endButton>
+            <Button text="{i18n>Close}" press="_handleNCVHClose" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

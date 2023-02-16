@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZQM_HOURLY_CYCLE_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="HRS_CYC_GET_DTLS" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TRACKNO"/>
+                    <PropertyRef Name="QMNUM"/>
+                    <PropertyRef Name="FENUM"/>
+                </Key>
+                <Property Name="TRACKNO" Type="Edm.String" Nullable="false" sap:unicode="false"/>
+                <Property Name="QMNUM" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false"/>
+                <Property Name="FENUM" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <Property Name="ParntPartNumber" Type="Edm.String" MaxLength="40" sap:unicode="false"/>
+                <Property Name="SERNR" Type="Edm.String" MaxLength="18" sap:unicode="false"/>
+                <Property Name="REMOVEDFROM" Type="Edm.String" Nullable="false" MaxLength="7" sap:unicode="false"/>
+                <Property Name="ZHOURS" Type="Edm.String" MaxLength="8" sap:unicode="false"/>
+                <Property Name="CYCLE" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <Property Name="ZZNCTYPE" Type="Edm.String" MaxLength="15" sap:unicode="false"/>
+                <Property Name="ZLOCPART" Type="Edm.String" MaxLength="10" sap:unicode="false"/>
+                <Property Name="ERNAM" Type="Edm.String" MaxLength="12" sap:unicode="false"/>
+                <Property Name="ERDAT" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="ERFZEIT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="AENAM" Type="Edm.String" MaxLength="12" sap:unicode="false"/>
+                <Property Name="AEDAT" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Time Stamp"/>
+                <Property Name="FC_UZEIT" Type="Edm.String" sap:unicode="false"/>
+                <Property Name="SNAG" Type="Edm.String" MaxLength="12" sap:unicode="false"/>
+                <Property Name="ZHRSCYCLECOMMENT" Type="Edm.String" MaxLength="1024" sap:unicode="false"/>
+            </EntityType>
+            <EntityContainer Name="ZQM_HOURLY_CYCLE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="HRS_CYC_GET_DTLSSet" EntityType="ZQM_HOURLY_CYCLE_SRV.HRS_CYC_GET_DTLS" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://dfc-bas:443/sap/opu/odata/sap/ZQM_HOURLY_CYCLE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://dfc-bas:443/sap/opu/odata/sap/ZQM_HOURLY_CYCLE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
